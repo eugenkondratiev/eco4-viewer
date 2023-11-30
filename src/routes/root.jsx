@@ -13,12 +13,12 @@ export default function Root() {
                                 <Link to="/">Головна</Link>
 
                             </li> */}
-                            <li>
+                            {/* <li>
                                 <Link to="/home">Домашня</Link>
 
-                            </li>
+                            </li> */}
                             <li>
-                                <Link to="/blr4">Котел 4</Link>
+                                <Link to="/blr4">Котел4</Link>
 
                             </li>
                             <li>

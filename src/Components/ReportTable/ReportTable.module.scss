@@ -1,0 +1,28 @@
+.root {
+    margin: 10px;
+    border: 3px red solid;
+
+
+    // & tbody &>tr:nth-child(2n+1) {
+    & tbody tr:nth-child(2n+1) {
+        background-color: beige;
+        color: midnightblue;
+
+    }
+
+    & thead {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        z-index: 999;
+        background-color: #000;
+        color: #fff;
+    }
+
+    & tbody tr td:nth-child(3){
+        color: darkred;
+        font-size: 1.4rem;
+        font-style: italic;
+        background-color: lightsteelblue;
+    }
+}
