@@ -19,10 +19,15 @@
         color: #fff;
     }
 
-    & tbody tr td:nth-child(3){
+    & tbody tr td:nth-child(3) {
         color: darkred;
         font-size: 1.4rem;
         font-style: italic;
         background-color: lightsteelblue;
+    }
+
+    & tr td:nth-child(3) {
+        min-width: 5ch;
+        margin: 3px;
     }
 }

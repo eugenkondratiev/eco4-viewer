@@ -7,7 +7,7 @@ const ReportTable = ({
     data
 }) => {
 
-    console.log("#### RENDER ReportTable.  data = ", data);
+    // console.log("#### RENDER ReportTable.  data = ", data);
     if (!data || !data.data || !Array.isArray(data.data)) return null
 
     return (

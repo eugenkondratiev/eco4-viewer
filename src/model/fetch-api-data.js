@@ -1,5 +1,5 @@
 export default async (_apiRef) => {
-    console.log("### _apiRef  - ", _apiRef);
+    // console.log("### _apiRef  - ", _apiRef);
     if (!_apiRef) return {
         count: 0,
         data: [],
@@ -21,8 +21,8 @@ export default async (_apiRef) => {
             // mode: " no-cors", // same-origin, no-cors
         });
 
-        console.log(` #### ${_apiRef} - ", ${JSON.stringify(response,null, " ")}`);
-        console.log("#### response  - ", response.status);
+        // console.log(` #### ${_apiRef} - ", ${JSON.stringify(response,null, " ")}`);
+        // console.log("#### response  - ", response.status);
 
     } catch (error) {
         console.log("fetch(_apiRef) error , ", error);
@@ -32,7 +32,7 @@ export default async (_apiRef) => {
     if (response.status !== 200) throw response.status > 500 ? Error("TIME_LIMIT_EXCEEDED") : Error(response.error);
 
     const data = await response.json();
-    console.log( " #### FETCH response - " , data);
+    // console.log( " #### FETCH response - " , data);
 
 
     return data.data && data.data.length ? {

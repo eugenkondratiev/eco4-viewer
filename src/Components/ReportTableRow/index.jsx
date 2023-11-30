@@ -9,8 +9,7 @@ const ReportTableRow = ({ data, parameters }) => {
             {data.map((value, columnIndex) => {
                 if (columnIndex === 0) return <td key={columnIndex}>{value}</td>
                 const digitAfterDot = parameters[columnIndex - 1].format.split(".")[1]
-                // console.log(value, parameters[columnIndex - 1], parameters[columnIndex].format);
-                if (!parameters || !parameters[columnIndex]) console.log("Problem value -", columnIndex, parameters[columnIndex - 1]);
+                if (!parameters || !parameters[columnIndex-1]) console.log("Problem value -", columnIndex, parameters[columnIndex - 1]);
                 return <td key={columnIndex}>{parameters
                     ? Number(value).toFixed(
                         digitAfterDot
