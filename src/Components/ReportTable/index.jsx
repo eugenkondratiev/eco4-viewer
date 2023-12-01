@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import formLastRow from "../../utils/form-last-row";
 import ReportTableHeader from "../ReportTableHeader";
 import ReportTableRow from "../ReportTableRow";
 import stl from "./ReportTable.module.scss";
@@ -28,6 +29,9 @@ const ReportTable = ({
 
                     return <ReportTableRow key={rowIndex} data={row} parameters={data.params}></ReportTableRow>
                 })
+                }
+                {
+                    data && data.data && data.params && <ReportTableRow data={formLastRow(data)} parameters={data.params}></ReportTableRow>
                 }
             </tbody>
 
