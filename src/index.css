@@ -107,6 +107,11 @@ header {
   height: 100%
 }
 
+.nav-wrapper a {
+  padding: 1.5rem;
+  border: 1px solid midnightblue;
+}
+
 #root {
   /* max-width: 1280px; */
   width: 100%;

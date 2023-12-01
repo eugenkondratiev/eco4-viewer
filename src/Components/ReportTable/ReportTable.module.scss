@@ -41,4 +41,9 @@
         font-size: 1.5rem;
         font-weight: 500;
     }
+
+    & tbody tr:hover {
+        background-color: darkgoldenrod;
+        color: midnightblue;
+    }
 }

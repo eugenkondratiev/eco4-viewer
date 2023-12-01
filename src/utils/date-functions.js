@@ -29,3 +29,15 @@ export const getYesterdayDate = () => {
     ).split(".").reverse().join("-")
 
 }
+
+
+export const getCurrentMonth = () => {
+    return (new Date()).getMonth()
+}
+
+export const getLastMonth = () => {
+
+    const mm = new Date()
+    mm.setMonth(mm.getMonth() - 1)
+    return mm.getMonth()
+}
