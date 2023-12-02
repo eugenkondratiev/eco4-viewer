@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { MONTH_REPORT_REF, UA_MONTH, REPORT_YEARS } from "../../utils/constants";
 import useReportData from '../../hooks/useReportData'
 import { Select } from "antd";
-import {  getCurrentMonth } from "../../utils/date-functions";
+import { getCurrentMonth } from "../../utils/date-functions";
 import ReportTable from "../../Components/ReportTable/index.jsx";
 import stl from "./MonthReport.module.scss";
 // import { useDebouncedEffect } from "../../hooks/useDebouncedEffect/index.js";
@@ -29,11 +29,9 @@ const MonthReportPage = () => {
         isError
     } = useReportData(MONTH_REPORT_REF, reportRequest, [reportRequest], { notNullParameters: true })
 
-    // useEffect(() => {
-    //     setDataString(reportData && reportData.data
-    //         ? `Добовий звіт за ${reportDate}`
-    //         : null)
-    // }, [reportDate])
+    useEffect(() => {
+        console.log("reportData  ", reportData);
+    }, [reportData])
 
     // function updateReportDate(e) {
     //     // console.log(" setReportDate(e.target.value)");
@@ -50,7 +48,7 @@ const MonthReportPage = () => {
     const updateReportRequest = (e) => {
 
         const blr = e.target.dataset.blr
-        setReportRequest(`${blr}${reportMonth && reportYear ? `?year=${reportYear}&month=${reportMonth}` : ""}`)
+        setReportRequest(`${blr}${reportMonth && reportYear ? `?year=${reportYear}&month=${reportMonth + 1}` : ""}`)
 
     }
 
@@ -133,8 +131,8 @@ const MonthReportPage = () => {
                 <button data-blr="t5" onClick={setCurrentMonthReportRequest}>Турбіна.Сьогодні</button> */}
 
             </fieldset>
-               {(isError || isLoading) && <Spin />}
-            {(isError || reportData && !reportData.data) && <div>Данні за обраний період відсутні або помилкові</div>}
+            {(isError || isLoading) && <Spin />}
+            {((isError ?? !isLoading) || reportData && !reportData.data) && <div>Данні за обраний період відсутні або помилкові</div>}
 
             {/* <DataTable /> */}
 
