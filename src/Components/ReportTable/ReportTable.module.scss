@@ -80,4 +80,13 @@
         background-color: darkgoldenrod;
         color: midnightblue;
     }
+
+    & tbody .superscript {
+        display: inline;
+        position: relative;
+        top: -0.5em;
+        font-size: 50%;
+        color: darkred;
+    }
+
 }

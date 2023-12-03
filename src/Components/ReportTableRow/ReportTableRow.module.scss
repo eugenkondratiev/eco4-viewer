@@ -2,3 +2,11 @@
     margin: 1px;
     // color: midnightblue;
 }
+
+td>p.superscript {
+    display: inline;
+    position: relative;
+    top: -0.5em;
+    font-size: 70%;
+    color: darkred;
+}
