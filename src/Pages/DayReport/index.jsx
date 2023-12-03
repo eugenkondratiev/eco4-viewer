@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { DAY_REPORT_REF } from "../../utils/constants";
 import useReportData from '../../hooks/useReportData'
 
@@ -11,7 +11,7 @@ const DayReportPage = () => {
     // const [dataString, setDataString] = useState(null)
     const [reportDate, setReportDate] = useState(getTodayDate())
     const [reportRequest, setReportRequest] = useState(null)
-    const pickDate = useRef("")
+    // const pickDate = useRef("")
 
     // eslint-disable-next-line no-unused-vars
     // console.log("todays", getTodayDate(), getYesterdayDate());
@@ -21,7 +21,7 @@ const DayReportPage = () => {
     } = useReportData(DAY_REPORT_REF, reportRequest, [reportRequest], { notNullParameters: true })
 
 
-    console.log("###render", reportDate, reportRequest, pickDate);
+    // console.log("###render", reportDate, reportRequest, pickDate);
 
     function updateReportDate(e) {
         // console.log(" setReportDate(e.target.value)");
@@ -43,9 +43,7 @@ const DayReportPage = () => {
 
 
     const setYesterdayReportRequest = (e) => {
-        // pickDate.current = e.target.dataset.blr;
         const lastDay = getYesterdayDate();
-        // setReportDate();
         const blr = e.target.dataset.blr
 
         formReportRequest(blr, lastDay)
@@ -53,9 +51,7 @@ const DayReportPage = () => {
     }
     const setTodayReportRequest = (e) => {
 
-        // pickDate.current = e.target.dataset.blr;
         const toDay = getTodayDate()
-        // setReportDate(getTodayDate());
 
         const blr = e.target.dataset.blr
         formReportRequest(blr, toDay)
@@ -73,6 +69,7 @@ const DayReportPage = () => {
             </fieldset>
             <fieldset>
                 <legend>Оберіть звіт</legend>
+                <button data-blr="blr1" onClick={updateReportRequest}>Котел1</button>
                 <button data-blr="blr4" onClick={updateReportRequest}>Котел4</button>
                 <button data-blr="t5" onClick={updateReportRequest}>Турбіна</button>
                 <button data-blr="blr4" onClick={setYesterdayReportRequest}>Котел4.Вчора</button>
