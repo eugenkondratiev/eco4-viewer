@@ -50,7 +50,7 @@ const MonthReportPage = () => {
     const updateReportRequest = (e) => {
 
         const blr = e.target.dataset.blr
-        setReportRequest(`${blr}${reportMonth && reportYear ? `?year=${reportYear}&month=${reportMonth}` : ""}`)
+        setReportRequest(`${blr}${reportMonth && reportYear ? `?year=${reportYear}&month=${reportMonth+1}` : ""}`)
 
     }
 
