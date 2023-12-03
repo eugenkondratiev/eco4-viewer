@@ -7,7 +7,7 @@ import stl from "./ReportTable.module.scss";
 const ReportTable = ({
     data
 }) => {
-    console.log("ReportTable", data);
+    // console.log("ReportTable", data);
     if (!data || !data.data || !Array.isArray(data.data)) return null
     const blr = data.blr;
 

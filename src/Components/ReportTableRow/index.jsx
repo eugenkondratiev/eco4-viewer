@@ -10,9 +10,9 @@ const ReportTableRow = ({ data, parameters, blr }) => {
         const  _row = [...row];
         const w= _row.pop()
         const [dt, q, ...rest] = _row;
-        
+
         const blr1row = [dt, q, w, ...rest];
-        if (blr == "blr1") console.log(w, blr1row);
+        // if (blr == "blr1") console.log(w, blr1row);
         return blr == "blr1" ? blr1row
 
             : row
@@ -24,7 +24,7 @@ const ReportTableRow = ({ data, parameters, blr }) => {
                     data.map((value, columnIndex) => {
                         if (columnIndex === 0) {
                             const [_hours, _hoursQuantity] = value.split("&")
-                            if (_hoursQuantity) console.log(_hours, _hoursQuantity);
+                            // if (_hoursQuantity) console.log(_hours, _hoursQuantity);
                             return <td key={columnIndex}>{_hours}{_hoursQuantity && <p className={stl.superscript}>{_hoursQuantity}</p>}</td>
                         }
                         let digitAfterDot = 0

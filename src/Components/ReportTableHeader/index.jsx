@@ -4,14 +4,17 @@ import stl from "./ReportTableHeader.module.scss";
 const ReportTableHeader = ({ data, blr }) => {
     if (!data || !Array.isArray(data)) return null
     const swapRowsForBlr1 = (row, blr) => {
-        const w = row.pop();
-        const [q, ...rest] = row;
+        const _row= [...row]
+
+        if (blr !== "blr1") return _row
+
+        const  w = _row.pop();
+        const [q, ...rest] = _row;
         const blr1row = [q, w, ...rest];
-        if (blr == "blr1") console.log(w, blr1row);
+        // if (blr == "blr1") console.log(w, blr1row);
 
-        return blr == "blr1" ? blr1row
+        return  blr1row
 
-            : row
     }
 
     return (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { MONTH_REPORT_REF, UA_MONTH, REPORT_YEARS } from "../../utils/constants";
 import useReportData from '../../hooks/useReportData'
 import { Select } from "antd";
@@ -29,21 +29,10 @@ const MonthReportPage = () => {
         isError
     } = useReportData(MONTH_REPORT_REF, reportRequest, [reportRequest], { notNullParameters: true })
 
-    useEffect(() => {
-        console.log("reportData  ", reportData);
-    }, [reportData])
+    // useEffect(() => {
+    //     console.log("reportData  ", reportData);
+    // }, [reportData])
 
-    // function updateReportDate(e) {
-    //     // console.log(" setReportDate(e.target.value)");
-    //     reportDate.current = e.target.value
-    // }
-
-
-    // useDebouncedEffect(() => {
-    //     reportMonth.current.value = getCurrentMonth()
-    //     reportYear.current.value = (new Date()).getFullYear();
-
-    // }, [], 300)
 
     const updateReportRequest = (e) => {
 
@@ -52,21 +41,11 @@ const MonthReportPage = () => {
 
     }
 
-    // const setLastMonthReportRequest = (e) => {
-    //     reportDate.current = getYesterdayDate()
-    //     updateReportRequest(e)
-
-    // }
-    // const setCurrentMonthReportRequest = (e) => {
-    //     reportDate.current = getTodayDate()
-    //     updateReportRequest(e)
-
-    // }
 
     const Spin = () => { return (<>{"requesting data....."}</>) }
 
 
-    console.log("reportYear", reportYear)
+    // console.log("reportYear", reportYear)
         ;
     return (
         <div>
@@ -122,6 +101,7 @@ const MonthReportPage = () => {
             </fieldset>
             <fieldset>
                 <legend>Оберіть звіт</legend>
+                <button data-blr="blr1" onClick={updateReportRequest}>Котел1</button>
                 <button data-blr="blr4" onClick={updateReportRequest}>Котел4</button>
                 <button data-blr="t5" onClick={updateReportRequest}>Турбіна</button>
 
