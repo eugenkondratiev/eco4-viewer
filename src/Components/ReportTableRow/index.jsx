@@ -1,26 +1,51 @@
 /* eslint-disable react/prop-types */
 
 import stl from "./ReportTableRow.module.scss";
-const ReportTableRow = ({ data, parameters }) => {
+const ReportTableRow = ({ data, parameters, blr }) => {
     if (!data || !Array.isArray(data)) return null
 
+
+
+    const swapRowsForBlr1 = (row, blr) => {
+        const  _row = [...row];
+        const w= _row.pop()
+        const [dt, q, ...rest] = _row;
+
+        const blr1row = [dt, q, w, ...rest];
+        // if (blr == "blr1") console.log(w, blr1row);
+        return blr == "blr1" ? blr1row
+
+            : row
+    }
     return (
         <tr className={stl.root}>
-            {data.map((value, columnIndex) => {
-                if (columnIndex === 0) {
-                    const [_hours, _hoursQuantity] = value.split("&")
-                    console.log(value, value.split("&"));
-                    if (_hoursQuantity) console.log(_hours, _hoursQuantity);
-                    return <td key={columnIndex}>{_hours}{_hoursQuantity && <p className={stl.superscript}>{_hoursQuantity}</p>}</td>
-                }
-                const digitAfterDot = parameters[columnIndex - 1].format.split(".")[1]
-                if (!parameters || !parameters[columnIndex - 1]) console.log("Problem value -", columnIndex, parameters[columnIndex - 1]);
-                return <td key={columnIndex}>{parameters
-                    ? Number(value).toFixed(
-                        digitAfterDot
-                    )
-                    : " - "}</td>
-            })}
+            {
+                swapRowsForBlr1(
+                    data.map((value, columnIndex) => {
+                        if (columnIndex === 0) {
+                            const [_hours, _hoursQuantity] = value.split("&")
+                            // if (_hoursQuantity) console.log(_hours, _hoursQuantity);
+                            return <td key={columnIndex}>{_hours}{_hoursQuantity && <p className={stl.superscript}>{_hoursQuantity}</p>}</td>
+                        }
+                        let digitAfterDot = 0
+                        try {
+
+                            digitAfterDot = parameters[columnIndex - 1].format.split(".")[1]
+                        } catch (error) {
+                            console.log(parameters[columnIndex - 1], error.message);
+
+                        }
+
+                        if (!parameters || !parameters[columnIndex - 1]) console.log("Problem value -", columnIndex, parameters[columnIndex - 1]);
+                        return <td key={columnIndex}>{parameters
+                            ? Number(value).toFixed(
+                                digitAfterDot
+                            )
+                            : " - "}</td>
+                    })
+                    , blr)
+
+            }
         </tr>
     )
 }
