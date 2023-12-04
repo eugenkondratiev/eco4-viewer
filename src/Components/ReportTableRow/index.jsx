@@ -13,7 +13,7 @@ const ReportTableRow = ({ data, parameters, blr }) => {
 
         const blr1row = [dt, q, w, ...rest];
         // if (blr == "blr1") console.log(w, blr1row);
-        return blr == "blr1" ? blr1row
+        return blr == "blr1" || blr == "blr2"? blr1row
 
             : row
     }

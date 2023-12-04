@@ -1,10 +1,14 @@
-import {  useState } from "react"
+import { useState } from "react"
 import { MONTH_REPORT_REF, UA_MONTH, REPORT_YEARS } from "../../utils/constants";
 import useReportData from '../../hooks/useReportData'
 import { Select } from "antd";
 import { getCurrentMonth } from "../../utils/date-functions";
 import ReportTable from "../../Components/ReportTable/index.jsx";
 import stl from "./MonthReport.module.scss";
+
+
+import getBlrLabel from '../../utils/blr-label-string.js'
+
 // import { useDebouncedEffect } from "../../hooks/useDebouncedEffect/index.js";
 const { Option } = Select;
 
@@ -45,7 +49,7 @@ const MonthReportPage = () => {
     const Spin = () => { return (<>{"requesting data....."}</>) }
 
 
-    // console.log("reportYear", reportYear)
+        // console.log("reportYear", reportYear)
         ;
     return (
         <div>
@@ -102,6 +106,7 @@ const MonthReportPage = () => {
             <fieldset>
                 <legend>Оберіть звіт</legend>
                 <button data-blr="blr1" onClick={updateReportRequest}>Котел1</button>
+                <button data-blr="blr2" onClick={updateReportRequest}>Котел2</button>
                 <button data-blr="blr4" onClick={updateReportRequest}>Котел4</button>
                 <button data-blr="t5" onClick={updateReportRequest}>Турбіна</button>
 
@@ -115,7 +120,10 @@ const MonthReportPage = () => {
             {((isError ?? !isLoading) || reportData && !reportData.data) && <div>Данні за обраний період відсутні або помилкові</div>}
 
             {/* <DataTable /> */}
-
+            {reportMonth && reportData && reportData.data && !isError && !isLoading
+                && <h3>{reportData?.blr && getBlrLabel(reportData.blr)} {` Подобовий звіт за ${UA_MONTH[reportMonth]}`
+                }
+                </h3>}
             {reportData && reportData.data && !isError && !isLoading && <ReportTable data={reportData} />}
         </div>
     )
