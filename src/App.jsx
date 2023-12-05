@@ -8,6 +8,8 @@ import MonthReportPage from './Pages/MonthReport';
 import './App.css'
 import ErrorPage from './Pages/ErrorPage';
 import Root from './routes/root';
+import InfoModal from './Components/InfoModal';
+import { ParameterInfoProvider } from './context/parameter-info-context';
 
 const router = createBrowserRouter([
   {
@@ -37,25 +39,30 @@ const router = createBrowserRouter([
         path: "/blr4",
         errorElement: <ErrorPage />,
 
-        element: <HomePage blr="blr4"/>
+        element: <HomePage blr="blr4" />
       },
       {
         path: "/t5",
         errorElement: <ErrorPage />,
 
-        element: <HomePage blr="t5"/>
+        element: <HomePage blr="t5" />
       },
     ]
   },
 
 ])
 
+// export const ParameterInfoContext = createContext(null)
 
 function App() {
-  // const [count, setCount] = useState(0)
+  // const [parameterInfo, setParameterInfo] = useState(null)
 
   return (
-    <RouterProvider router={router} />
+    <ParameterInfoProvider>
+
+      <RouterProvider router={router} />
+      <InfoModal />
+    </ParameterInfoProvider>
 
   )
 }
