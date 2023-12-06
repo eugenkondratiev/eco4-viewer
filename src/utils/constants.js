@@ -1,8 +1,8 @@
-const SERVER_IP = "http://178.158.238.89"
-const SERVER_PORT = 3000
+// const SERVER_IP = "http://178.158.238.89"
+// const SERVER_PORT = 3000
 
-// const SERVER_IP = "http://127.0.0.1"
-// const SERVER_PORT = 3005
+const SERVER_IP = "http://127.0.0.1"
+const SERVER_PORT = 3005
 export const API_HOST = `${SERVER_IP}:${SERVER_PORT}/`
 // export const API_HOST = `/api/`
 
@@ -23,7 +23,12 @@ export const UA_MONTH = [
     "Грудень"
 ]
 
-export const REPORT_YEARS = [...Array(10)].map((x,index)=>index + 2018) 
+export const REPORT_YEARS = [...Array(10)].map((x, index) => index + 2018)
 
 
-
+export const PARAMETER_TYPES = {
+    AVG: 0,
+    SUM: 1,
+    MIN: 2,
+    MAX: 3,
+}

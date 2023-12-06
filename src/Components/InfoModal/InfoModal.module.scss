@@ -1,0 +1,155 @@
+.modal-insertion {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgb(14, 14, 14, 0.4);
+    /* pointer-events: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: lightgray;
+    /* pointer-events: none; */
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.insertion-content {
+    width: 80%;
+    height: 70%;
+    z-index: 99;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(14, 14, 14, 0.9);
+    pointer-events: none;
+
+    border-color: lightcyan;
+    box-shadow: 1px 1px 7px;
+
+
+    & picture {
+        width: 100%;
+        padding: 4px;
+        box-sizing: border-box;
+        pointer-events: none;
+
+    }
+
+    & h2 {
+        text-transform: capitalize;
+        text-align: center;
+        margin: 0;
+    }
+
+    & article {
+        padding: 4px 8px;
+        font-weight: 300;
+        line-height: 1.1;
+        font-size: .9em;
+        text-indent: 1.5em;
+        text-align: justify;
+
+    }
+
+    & article p {
+        margin: .5em;
+    }
+
+    & img {
+        max-width: 90%;
+        height: 40vh;
+        margin: 0 auto;
+        display: block;
+        pointer-events: none;
+
+    }
+
+    & section {
+        pointer-events: none;
+
+    }
+
+    & button {
+        pointer-events: all;
+        color: lightgray;
+        background-color: rgb(18, 18, 18);
+        box-shadow: 1px 1px 4px;
+        padding: 8px;
+        min-width: 25ch;
+        cursor: pointer;
+    }
+
+}
+
+@media (min-width: 400px) {
+
+    /* @media (min-width: 40em) and (orientation: landscape) {  */
+    .insertion-content picture {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        pointer-events: none;
+
+    }
+
+    .insertion-content h2 {
+        text-transform: capitalize;
+        text-align: center;
+        margin-block-end: 2rem;
+        margin-block-start: 0;
+
+    }
+
+    .insertion-content article {
+        padding: 12px 40px;
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 1.2em;
+        text-indent: 1.5em;
+    }
+
+    .insertion-content img {
+        max-width: 90%;
+        height: 40vh;
+        margin: 0 auto;
+        display: block;
+        pointer-events: none;
+
+    }
+
+    .insertion-content section {
+        pointer-events: none;
+
+    }
+
+    .insertion-content button {
+        pointer-events: all;
+
+    }
+}
+
+@media (min-width: 1030px) {
+    .insertion-content article {
+        padding: 12px 60px;
+        font-weight: 600;
+        line-height: 1.5;
+        font-size: 1.5em;
+        text-indent: 1.5em;
+    }
+
+    .insertion-content button {
+        color: lightgray;
+        padding: 12px 24px;
+        min-width: 30ch;
+        font-size: 1.5rem;
+    }
+}
