@@ -7,11 +7,15 @@ const ReportTableHeader = ({ data, blr }) => {
     const swapRowsForBlr1 = (row, blr) => {
         const _row = [...row]
 
-        if (blr !== "blr1" && blr !== "blr2") return _row
+        if (blr !== "blr1" && blr !== "blr2") {
+            if (blr == "el") return _row.slice(0, 2)
+            return _row
+        }
 
         const w = _row.pop();
         const [q, ...rest] = _row;
         const blr1row = [q, w, ...rest];
+
         // if (blr == "blr1") console.log(w, blr1row);
 
         return blr1row

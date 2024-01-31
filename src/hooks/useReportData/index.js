@@ -16,6 +16,7 @@ export default function useData(endpoint, parameters, dependencies = [], options
     useEffect(() => {
         const getData = async () => {
             try {
+
                 setIsLoading(true)
                 if (options.notNullParameters && !parameters) {
                     /* empty */

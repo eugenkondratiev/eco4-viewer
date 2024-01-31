@@ -41,7 +41,8 @@ const MonthReportPage = () => {
     const updateReportRequest = (e) => {
 
         const blr = e.target.dataset.blr
-        setReportRequest(`${blr}${reportMonth && reportYear ? `?year=${reportYear}&month=${reportMonth + 1}` : ""}`)
+        // console.log("updateReportReques", reportMonth, reportYear);
+        setReportRequest(`${blr}${reportMonth !== null && reportYear ? `?year=${reportYear}&month=${reportMonth + 1}` : ""}`)
 
     }
 
@@ -109,6 +110,7 @@ const MonthReportPage = () => {
                 <button data-blr="blr2" onClick={updateReportRequest}>Котел2</button>
                 <button data-blr="blr4" onClick={updateReportRequest}>Котел4</button>
                 <button data-blr="t5" onClick={updateReportRequest}>Турбіна</button>
+                <button data-blr="el" onClick={updateReportRequest}>Електро</button>
 
                 {/* <button data-blr="blr4" onClick={setLastMonthReportRequest}>Котел4.Вчора</button>
                 <button data-blr="t5" onClick={setLastMonthReportRequest}>Турбіна.Вчора</button>
