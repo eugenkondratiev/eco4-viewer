@@ -71,6 +71,7 @@ const DayReportPage = () => {
                 <button data-blr="blr2" onClick={updateReportRequest}>Котел2</button>
                 <button data-blr="blr4" onClick={updateReportRequest}>Котел4</button>
                 <button data-blr="t5" onClick={updateReportRequest}>Турбіна</button>
+                <button data-blr="el" onClick={updateReportRequest}>Електро</button>
             </fieldset>
             <fieldset>
                 <legend>Оберіть звіт</legend>
