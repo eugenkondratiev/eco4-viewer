@@ -126,7 +126,7 @@ const MonthReportPage = () => {
                 && <h3>{reportData?.blr && getBlrLabel(reportData.blr)} {` Подобовий звіт за ${UA_MONTH[reportMonth]}`
                 }
                 </h3>}
-            {reportData && reportData.data && !isError && !isLoading && <ReportTable data={reportData} />}
+            {reportData && reportData.data && !isError && !isLoading && <ReportTable data={reportData} noHours />}
         </div>
     )
 }

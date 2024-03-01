@@ -5,49 +5,54 @@ import ReportTableHeader from "../ReportTableHeader";
 import ReportTableRow from "../ReportTableRow";
 import stl from "./ReportTable.module.scss";
 const ReportTable = ({
-    data
+    data, noHours
 }) => {
     // console.log("ReportTable", data);
     if (!data || !data.data || !Array.isArray(data.data)) return null
     const blr = data.blr;
 
     return (
-        <table className={stl.root}>
-            <thead>
+        <>
+            <h5>Розрахункова година {blr == "el" ? " 00:00" : "07:00"}</h5>
+            <table className={stl.root}>
 
-                {
-                    data && data.data && <ReportTableHeader data={data.params} blr={blr}>
+                <thead>
 
-                    </ReportTableHeader>
+                    {
+                        data && data.data && <ReportTableHeader data={data.params} blr={blr}>
 
-                }
-            </thead>
-            <tbody>
+                        </ReportTableHeader>
 
-                {data && data.data && data.data.map((row, rowIndex) => {
-                    // console.log("data.data rowIndex  - ", rowIndex);
+                    }
+                </thead>
+                <tbody>
 
-                    return <ReportTableRow
-                        key={rowIndex}
-                        data={row}
-                        blr={blr}
-                        parameters={data.params}>
+                    {data && data.data && data.data.map((row, rowIndex) => {
+                        // console.log("data.data rowIndex  - ", rowIndex);
 
-                    </ReportTableRow>
-                })
-                }
-                {
-                    data && data.data && data.params &&
-                    <ReportTableRow
-                        data={formLastRow(data)}
-                        blr={blr}
-                        parameters={data.params}>
+                        return <ReportTableRow
+                            key={rowIndex}
+                            data={row}
+                            blr={blr}
+                            parameters={data.params}
+                            noHours={noHours}
+                        >
+                        </ReportTableRow>
+                    })
+                    }
+                    {
+                        data && data.data && data.params &&
+                        <ReportTableRow
+                            data={formLastRow(data)}
+                            blr={blr}
+                            parameters={data.params}>
 
-                    </ReportTableRow>
-                }
-            </tbody>
+                        </ReportTableRow>
+                    }
+                </tbody>
 
-        </table>
+            </table>
+        </>
     )
 }
 

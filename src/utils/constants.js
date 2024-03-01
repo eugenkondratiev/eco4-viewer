@@ -25,6 +25,7 @@ export const UA_MONTH = [
 
 export const REPORT_YEARS = [...Array(10)].map((x, index) => index + 2018)
 
+export const ELECTRIC_PARAMETERS_QUANTITY = 9
 
 export const PARAMETER_TYPES = {
     AVG: 0,

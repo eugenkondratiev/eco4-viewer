@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 
 import stl from "./ReportTableRow.module.scss";
-const ReportTableRow = ({ data, parameters, blr }) => {
+const ReportTableRow = ({ data, parameters, blr, noHours }) => {
     if (!data || !Array.isArray(data)) return null
 
 
 
     const swapRowsForBlr1 = (row, blr) => {
-        const  _row = [...row];
-        const w= _row.pop()
+        const _row = [...row];
+        const w = _row.pop()
         const [dt, q, ...rest] = _row;
 
         const blr1row = [dt, q, w, ...rest];
         // if (blr == "blr1") console.log(w, blr1row);
-        return blr == "blr1" || blr == "blr2"? blr1row
+        return blr == "blr1" || blr == "blr2" ? blr1row
 
             : row
     }
@@ -25,7 +25,7 @@ const ReportTableRow = ({ data, parameters, blr }) => {
                         if (columnIndex === 0) {
                             const [_hours, _hoursQuantity] = value.split("&")
                             // if (_hoursQuantity) console.log(_hours, _hoursQuantity);
-                            return <td key={columnIndex}>{_hours}{_hoursQuantity && <p className={stl.superscript}>{_hoursQuantity}</p>}</td>
+                            return <td key={columnIndex}>{noHours ? _hours.slice(0, -9) : _hours}{_hoursQuantity && <p className={stl.superscript}>{_hoursQuantity}</p>}</td>
                         }
                         let digitAfterDot = 0
                         try {
